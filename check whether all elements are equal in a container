@@ -1,0 +1,4 @@
+if ( std::equal(v.begin() + 1, v.end(), v.begin()) )
+{
+    //all equal
+}
