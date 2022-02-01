@@ -28,3 +28,46 @@ int fermat(int n) {
     }
     return a - b;
 }
+
+
+// Another approach Refernce : GeeksforGeeks
+
+
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+void fermatfactors(int n) {
+	if (n <= 0) {
+		cout << "[" << n << " ]";
+		return;
+	}
+	if ((n & 1) == 0) {
+		cout << '[' << n / 2.0 << "," << 2 <<  ']';
+		return;
+	}
+	int a = ceil(sqrt(n));
+	if (a * a == n) {
+		cout << "[" << a << "," << a << "]" << endl;
+		return;
+	}
+	int b;
+	while (true) {
+		int b1 = a * a - n;
+		b = (int)sqrt(b1);
+		if (b * b == b1)
+			break;
+		else
+			a += 1;
+	}
+	cout << "[" << (a - b) << "," << (a + b) << "]" ;
+}
+int main()
+{
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+	ll n; cin >> n;
+	fermatfactors(n);
+}
