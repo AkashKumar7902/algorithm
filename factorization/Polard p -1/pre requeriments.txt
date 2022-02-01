@@ -1,0 +1,10 @@
+Fermat Little Theorem :
+
+given two numbers p and q then if p is a prime number and a is any positive number which is not divisible by p, then 
+
+fermat's little theorem holds true if,
+
+    a^(p-1) = 1 (mod p)
+   
+   
+Refernce Neso Academy
