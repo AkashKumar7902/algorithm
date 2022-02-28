@@ -43,7 +43,7 @@ void kmpsearch(string pat,string txt) {
 	computeLPSarray(pat, m, lps);
 	int i = 0;
 	int j = 0;
-	while( i < n - m + 1) {
+	while( i < n) {
 		if(txt[i] == pat[j]) {
 			i += 1;
 			j += 1;
