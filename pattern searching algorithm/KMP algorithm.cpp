@@ -13,53 +13,55 @@ using namespace placeholders;
 #define ll long long
 const ll mod = 1e9 + 7;
 
-void computeLPSarray(string pat, int m, vector<int> &lps) {
+void computelps(string pat, int m, vector<ll> &lps) {
 	int len = 0;
 	int i = 1;
 	lps[0] = 0;
-	while( i < m) {
-		if(pat[i] == pat[len]) {
+	while (i < m) {
+		if (pat[i] == pat[len]) {
 			lps[i] = len + 1;
-			len += 1;
-			i += 1;
+			len++;
+			i++;
 		}
 		else {
-			if(len != 0) {
+			if (len != 0)
 				len = lps[len - 1];
-			}
 			else {
 				lps[i] = 0;
-				i += 1;
+				i++;
 			}
 		}
 	}
 }
 
-
-void kmpsearch(string pat,string txt) {
-	int n = txt.size();
-	int m = pat.size();
-	vector<int> lps(m);
-	computeLPSarray(pat, m, lps);
-	int i = 0;
-	int j = 0;
-	while( i < n) {
-		if(txt[i] == pat[j]) {
-			i += 1;
-			j += 1;
+void kmpsearch(string text, string pat) {
+	ll n = text.size();
+	ll m = pat.size();
+	vector<ll> lps(m);
+	computelps(pat, m, lps);
+	ll i = 0;
+	ll j = 0;
+	while (i < n) {
+		if (text[i] == pat[j]) {
+			i++;
+			j++;
 		}
 		else {
-			if(j != 0)
+			if (j != 0) {
 				j = lps[j - 1];
-			else 
-				i += 1;
+			}
+			else {
+				i ++;
+			}
 		}
-		if(j == m) {
-			cout << i << " " << j << endl;
+		if (j == m) {
+			cout << i - j << endl;
 			j = lps[j - 1];
 		}
 	}
 }
+
+
 
 int main() {
 	std::ios::sync_with_stdio(false);
@@ -69,6 +71,8 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	string pat, txt;
-	cin >> txt >> pat;
+	string text, pat;
+	while (cin >> text >> pat) {
+		kmpsearch(text, pat);
+	}
 }
