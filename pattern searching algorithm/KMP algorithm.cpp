@@ -55,7 +55,7 @@ void kmpsearch(string text, string pat) {
 			}
 		}
 		if (j == m) {
-			cout << i - j << endl;
+			cout << i - j << endl; 	// prints the index at which the pattern starts in string text
 			j = lps[j - 1];
 		}
 	}
