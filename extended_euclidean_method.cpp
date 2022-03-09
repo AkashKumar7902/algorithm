@@ -32,7 +32,8 @@ int main() {
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-#endif
+#endif 
+	// the function takes parameters as the coefficients of x and y in the given linear equation.
 	extended_euclid(18, 30);
 	cout << x << " " << y << endl;
 }
