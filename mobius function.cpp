@@ -2,7 +2,19 @@
 //  mobius function
 //
 
+/*
+	For any positive integer n, define mui(n) as the 
+	sum of the primitive nth roots of unity. it has values
+	in (-1, 0, 1) depending on the factorization of n into prime factors.
+	
+	-> mu(n) = 1 if n is a square free integer with an even number
+	of prime factors.
+	-> mu(n) = -1 if n is a square free positive integer with an
+	odd number of prime factors.
+	-> mu(n) = 0 if n has a squared prime factor.
+	
 
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
