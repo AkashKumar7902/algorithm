@@ -1,3 +1,6 @@
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 using namespace placeholders;
@@ -16,6 +19,15 @@ void solve(stack<int> &s, int k) {
 	solve(s, k - 1);
 	s.push(temp);
 }
+
+
+// mid = k = (st.size() + 1) / 2;
+
+//    5   
+//    4    
+//    1 --> mid = (5 + 1) / 2 = 3;
+//    2
+//    3
 
 stack<int> middel(stack<int> &s) {
 	if (s.size() == 0)
