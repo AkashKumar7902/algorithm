@@ -1,1 +1,21 @@
+ --------------Recursion-------------------------
+  Recursion in computer science is a method where 
+  solution to a problem depends on solutions to
+  smaller instances of the same problem.
+-------------------------------------------------
+
+  Parts of recursion algorithm 
+  1) Base case
+  2) Recursive call (to work towards Base case) 
+  
+  while solving recursion question 
+  if there is a case of choices, then make recursive tree.
+  If u make the recursive tree then writing code will be a cakewalk.
+  
+  If its not the case of choices,
+  do the following (Principle of Mathematical Induction) (PMI) :
+  1) Figure out the Base Case
+  2) Assume sub Problems can be solved by recursion (automatically)
+  3) using the Sub- Problems write the answer for the current problem.
+  Lets call this Method IBH (Induction- Base case - Hypothesis).
 
