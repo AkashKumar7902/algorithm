@@ -83,3 +83,76 @@ void solve(int i, int j, vector<vector<int>> &arr, vector<vector<int>> &vis, str
 
 }
 
+
+//approach( Coding Blocks )
+
+#include <bits/stdc++.h>
+using namespace std;
+using namespace placeholders;
+#define mem1(a) 		memset(a, -1, sizeof(a))
+#define mem0(a)			memset(a, 0, sizeof(a))
+#define pb push_back
+#define pf push_front
+#define ppb pop_back
+#define ppf pop_front
+#define fr first
+#define sc second
+#define ll long long
+#define printst(st)		for(auto &i : st) cout << i << " "; cout << endl;
+#define printvec(vec) for(auto elem : vec) cout << elem << " "; cout << endl;
+#define printstack(st) while(!st.empty()) cout << st.top() << " ", st.pop(), cout <<endl;
+#define MOD 1000000007
+
+bool ratinmaze(char maze[][10], int soln[][10], int i, int j, int m, int n) {
+	if (i == m and j == n) {
+		soln[i][j] = 1;
+		for (int i = 0; i <= m; ++i) {
+			for (int j = 0; j <= n; ++j) {
+				cout << soln[i][j] << " ";
+			}
+			cout << endl;
+		}
+		cout << endl;
+		return true;
+	}
+	if (i > m || j > n ) {
+		return false;
+	}
+	if (maze[i][j] == 'X') {
+		return false;
+	}
+	soln[i][j] = 1;
+
+	bool rightsuccess = ratinmaze(maze, soln, i, j + 1, m, n);
+	bool downsuccess = ratinmaze(maze, soln, i + 1, j, m, n);
+
+	soln[i][j] = 0;
+
+	if (rightsuccess || downsuccess) {
+		return true;
+	}
+	return false;
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+	char maze[10][10] = {
+		"0000",
+		"00X0",
+		"000X",
+		"0X00"
+	};
+	int soln[10][10] = {};
+	int m = 4, n = 4;
+	bool ans = ratinmaze(maze, soln, 0, 0, m - 1, n - 1);
+	if (ans == false) {
+		cout << "path does'nt exist" << endl;
+	}
+}
+
+
