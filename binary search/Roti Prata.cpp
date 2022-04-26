@@ -1,3 +1,5 @@
+// https://www.spoj.com/problems/PRATA/
+
 #include <bits/stdc++.h>
 using namespace std;
 using namespace placeholders;
