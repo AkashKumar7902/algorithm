@@ -2,47 +2,72 @@
 using namespace std;
 using namespace placeholders;
 
-#define ll long long
-
-#define MOD 1000000009
-
 void insert(stack<int> &st, int temp) {
-	if (st.size() == 0 or st.top() <= temp) {
+	if (st.size() == 0 || st.top() <= temp) {
 		st.push(temp);
 		return;
 	}
-	int val = st.top();
+	int temp2 = st.top();
 	st.pop();
 	insert(st, temp);
-	st.push(val);
+	st.push(temp2);
+	return;
 }
 
-void sorting(stack<int> &st) {
+void sortStack(stack<int> &st) {
 	if (st.size() == 1) {
 		return;
 	}
 	int temp = st.top();
 	st.pop();
-	sorting(st);
+	sortStack(st);
 	insert(st, temp);
+}
+
+void printAsscending(stack<int> st) {
+	if (st.size() == 0) {
+		return;
+	}
+	int temp = st.top();
+	st.pop();
+	printAsscending(st);
+	cout << temp << ", ";
+	// st.push(temp); (not required)
+}
+
+void printDescending(stack<int> st) {
+	if (st.size() == 0) {
+		return;
+	}
+	int temp = st.top();
+	st.pop();
+	cout << temp <<  ", ";
+	printDescending(st);
+	// st.push(temp); (not required)
 }
 
 int main() {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(nullptr);
+
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	stack<int> v;
+
 	int n; cin >> n;
+	stack<int> st;
+	int elem;
 	for (int i = 0; i < n; ++i) {
-		int num; cin >> num;
-		v.push(num);
+		cin >> elem;
+		st.push(elem);
 	}
-	sorting(v);
-	while (!v.empty()) {
-		cout << v.top() << endl;
-		v.pop();
-	}
+	sortStack(st);
+	printAsscending(st);
+	cout << endl;
+	printDescending(st);
 }
+
+
+
+
